@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 
 class LiftList extends Component {
   render() {
-    retrun(
+    return (
       <View>
         <Text>Lift Lift</Text>
         <Text>Lift Lift</Text>

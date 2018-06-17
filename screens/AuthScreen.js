@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 
 class AuthScreen extends Component {
   render() {
-    retrun(
+    return (
       <View>
         <Text>AuthScreen</Text>
         <Text>AuthScreen</Text>

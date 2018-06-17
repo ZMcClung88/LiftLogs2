@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 
 class DashScreen extends Component {
   render() {
-    retrun(
+    return (
       <View>
         <Text>DashScreen</Text>
         <Text>DashScreen</Text>

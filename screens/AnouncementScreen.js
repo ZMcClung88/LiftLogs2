@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 
 class Announcement extends Component {
   render() {
-    retrun(
+    return (
       <View>
         <Text>Announcement</Text>
         <Text>Announcement</Text>

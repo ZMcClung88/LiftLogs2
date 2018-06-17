@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 
 class EmployeeList extends Component {
   render() {
-    retrun(
+    return (
       <View>
         <Text>EmployeeList</Text>
         <Text>EmployeeList</Text>

@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 
 class MenuScreen extends Component {
   render() {
-    retrun(
+    return (
       <View>
         <Text>MenuScreen</Text>
         <Text>MenuScreen</Text>

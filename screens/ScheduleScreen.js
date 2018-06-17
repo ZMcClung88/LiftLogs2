@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 
 class Schedule extends Component {
   render() {
-    retrun(
+    return (
       <View>
         <Text>Schedule</Text>
         <Text>Schedule</Text>

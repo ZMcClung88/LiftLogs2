@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 
 class AddLift extends Component {
   render() {
-    retrun(
+    return (
       <View>
         <Text>AddLift</Text>
         <Text>AddLift</Text>
