@@ -4,7 +4,7 @@ import Slides from '../components/Slides';
 
 const SLIDE_DATA = [
   { text: 'Welcome to Lift Logs', backgroundColor: '#1e304f', color: '#F3D92D' },
-  { text: 'Keep track of employees', backgroundColor: '#F3D92D', color: '#1e304f' },
+  { text: 'Manage of employees', backgroundColor: '#F3D92D', color: '#1e304f' },
   { text: 'View Schedules', backgroundColor: '#1e304f', color: '#F3D92D' }
 ];
 
