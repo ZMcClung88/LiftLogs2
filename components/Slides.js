@@ -43,7 +43,7 @@ const styles = {
     textAlign: 'center'
   },
   buttonStyle: {
-    backgroundColor: '#F3D92D',
+    backgroundColor: '#1e304f',
     marginTop: 15,
     width: 200,
     borderRadius: 3

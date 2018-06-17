@@ -9,25 +9,25 @@ class EmployeeForm extends Component {
   render() {
     return (
       <View>
-        <CardSection style={{ height: 40, backgroundColor: 'white' }}>
+        <CardSection>
           <Input
             label="First Name"
             placeholder="Jane"
-            value={this.props.firstName}
-            onChangeText={value => this.props.employeeUpdate({ prop: 'firstName', value })}
+            value={this.props.name}
+            onChangeText={value => this.props.employeeUpdate({ prop: 'name', value })}
           />
         </CardSection>
 
-        <CardSection style={{ height: 40, backgroundColor: 'white' }}>
+        <CardSection>
           <Input
             label="Last Name"
             placeholder="Johnson"
-            value={this.props.lastName}
-            onChangeText={value => this.props.employeeUpdate({ prop: 'lastName', value })}
+            value={this.props.name}
+            onChangeText={value => this.props.employeeUpdate({ prop: 'name', value })}
           />
         </CardSection>
 
-        <CardSection style={{ height: 40, backgroundColor: 'white' }}>
+        <CardSection>
           <Input
             label="Phone"
             placeholder="555-555-5555"
@@ -41,32 +41,16 @@ class EmployeeForm extends Component {
 }
 
 const styles = {
-  titleStyle: {
-    fontSize: 24,
-    paddingLeft: 15,
-    color: '#F3D92D'
-  },
-  phoneStyle: {
-    color: '#1e304f',
-    fontWeight: 'bold',
-    paddingLeft: 25
-  },
-  containerStyle: {
-    borderBottomWidth: 1,
-    padding: 5,
-    backgroundColor: '#fff',
-    justifyContent: 'flex-start',
-    flexDirection: 'column',
-    borderColor: '#ddd',
-    position: 'relative'
+  pickerTextStyle: {
+    fontSize: 18,
+    paddingLeft: 20
   }
 };
 
-const mapStateToProps = state => {
-  console.log('state', state);
-  const { firstName, lastName, phone } = state.employeeForm;
+// const mapStateToProps = state => {
+//   const { name, phone, shift } = state.employeeForm;
+//
+//   return { name, phone, shift };
+// };
 
-  return { firstName, lastName, phone };
-};
-
-export default connect(mapStateToProps, { employeeUpdate })(EmployeeForm);
+export default EmployeeForm;

@@ -28,14 +28,7 @@ class DashScreen extends Component {
     };
   };
 
-  onButtonPress = () => {
-    AsyncStorage.removeItem('fb_token', () => {
-      this.props.navigation.navigate('welcome');
-    });
-  };
-
   onDashButtonPress(val) {
-    console.log('here!!!', val);
     this.props.navigation.navigate(val);
   }
 
@@ -63,7 +56,7 @@ class DashScreen extends Component {
           <MyButton text="Lifts" onPress={this.onDashButtonPress.bind(this, 'liftList')} style={styles} />
         </View>
         <View>
-          <Image style={{ width: 66, height: 58 }} source={require('../assets/logo.svg')} />
+          <Image style={styles.logoStyle} source={require('../assets/logo.svg')} />
         </View>
       </View>
     );
@@ -89,7 +82,7 @@ const styles = {
   buttonContainer: {
     flex: 1,
     backgroundColor: '#596479',
-    // alignItems: 'center',
+    alignItems: 'center',
     justifyContent: 'space-around',
     marginBottom: 15
   },
@@ -114,6 +107,11 @@ const styles = {
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center'
+  },
+  logoStyle: {
+    width: 132,
+    height: 116,
+    marginBottom: 35
   }
 };
 

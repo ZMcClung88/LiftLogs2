@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import { Provider } from 'react-redux';
-// import firebase from 'firebase';
-// import config from './config';
+import firebase from 'firebase';
+import config from './config';
 
 import store from './store/';
 import WelcomeScreen from './screens/WelcomeScreen';

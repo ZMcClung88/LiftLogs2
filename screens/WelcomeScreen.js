@@ -4,8 +4,9 @@ import Slides from '../components/Slides';
 
 const SLIDE_DATA = [
   { text: 'Welcome to Lift Logs', backgroundColor: '#1e304f', color: '#F3D92D' },
-  { text: 'Manage of employees', backgroundColor: '#F3D92D', color: '#1e304f' },
-  { text: 'View Schedules', backgroundColor: '#1e304f', color: '#F3D92D' }
+  { text: 'Manage employees', backgroundColor: '#F3D92D', color: '#1e304f' },
+  { text: 'Set Schedules', backgroundColor: '#1e304f', color: '#F3D92D' },
+  { text: 'Daily Overviews', backgroundColor: '#F3D92D', color: '#1e304f' }
 ];
 
 class WelcomeScreen extends Component {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View } from 'react-redux';
 import { connect } from 'react-redux';
 import { employeeUpdate, employeeCreate, resetForm } from '../actions';
 import { Card, CardSection, Spinner, Button } from './common';
@@ -10,17 +10,20 @@ import { Card, CardSection, Spinner, Button } from './common';
 import EmployeeForm from './EmployeeForm';
 
 class EmployeeCreate extends Component {
+  componentWillMount() {
+    this.props.resetForm();
+  }
+
   onButtonPress() {
-    const { firstName, lastName, phone } = this.props;
-    this.props.employeeCreate({ firstName, lastName, phone });
-    this.props.props.navigation.navigate('empList');
+    const { name, phone, shift } = this.props;
+    this.props.employeeCreate({ name, phone, shift: shift || 'Monday' });
   }
 
   render() {
     return (
       <Card>
         <EmployeeForm {...this.props} />
-        <CardSection style={{ height: 40 }}>
+        <CardSection>
           <Button onPress={this.onButtonPress.bind(this)}>Create</Button>
         </CardSection>
       </Card>
@@ -29,9 +32,9 @@ class EmployeeCreate extends Component {
 }
 
 const mapStateToProps = state => {
-  const { firstName, lastName, phone } = state.employeeForm;
+  const { name, phone, shift } = state.employeeForm;
 
-  return { firstName, lastName, phone };
+  return { name, phone, shift };
 };
 
 export default connect(mapStateToProps, { employeeUpdate, employeeCreate, resetForm })(EmployeeCreate);
