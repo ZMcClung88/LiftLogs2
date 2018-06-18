@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Picker } from 'react-native';
+import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { liftUpdate } from '../actions';
 import { CardSection } from './common/CardSection';
@@ -45,7 +45,7 @@ const styles = {
 };
 
 const mapStateToProps = state => {
-  console.log('state', state);
+  // console.log('state', state);
   const { name } = state.liftForm;
 
   return { name };

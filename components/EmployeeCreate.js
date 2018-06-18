@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { View } from 'react-redux';
-import { connect } from 'react-redux';
-import { employeeUpdate, employeeCreate, resetForm } from '../actions';
+import { View, connect } from 'react-redux';
+import { employeeUpdate, employeeCreate } from '../actions';
 import { Card, CardSection, Spinner, Button } from './common';
 // import { Card } from './common/Card';
 // import { CardSection } from './common/CardSection';
@@ -10,13 +9,11 @@ import { Card, CardSection, Spinner, Button } from './common';
 import EmployeeForm from './EmployeeForm';
 
 class EmployeeCreate extends Component {
-  componentWillMount() {
-    // this.props.resetForm();
-  }
-
   onButtonPress() {
-    const { name, phone, shift } = this.props;
-    this.props.employeeCreate({ name, phone, shift: shift || 'Monday' });
+    console.log('employee form props');
+    const { firstName, lastName, phone } = this.props;
+    this.props.employeeCreate({ firstName, lastName, phone });
+    this.props.props.navigation.navigate('menu');
   }
 
   render() {
@@ -32,9 +29,9 @@ class EmployeeCreate extends Component {
 }
 
 const mapStateToProps = state => {
-  const { name, phone, shift } = state.employeeForm;
+  const { firstName, lastName, phone } = state.employeeForm;
 
-  return { name, phone, shift };
+  return { firstName, lastName, phone };
 };
 
-export default connect(mapStateToProps, { employeeUpdate, employeeCreate, resetForm })(EmployeeCreate);
+export default connect(mapStateToProps, { employeeUpdate, employeeCreate })(EmployeeCreate);

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Picker } from 'react-native';
+import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { employeeUpdate } from '../actions';
 import { CardSection } from './common/CardSection';
@@ -9,7 +9,7 @@ class EmployeeForm extends Component {
   render() {
     return (
       <View>
-        <CardSection>
+        <CardSection style={{ height: 40, backgroundColor: 'white' }}>
           <Input
             label="First Name"
             placeholder="Jane"
@@ -18,7 +18,7 @@ class EmployeeForm extends Component {
           />
         </CardSection>
 
-        <CardSection>
+        <CardSection style={{ height: 40, backgroundColor: 'white' }}>
           <Input
             label="Last Name"
             placeholder="Johnson"
@@ -27,30 +27,13 @@ class EmployeeForm extends Component {
           />
         </CardSection>
 
-        <CardSection>
+        <CardSection style={{ height: 40, backgroundColor: 'white' }}>
           <Input
             label="Phone"
             placeholder="555-555-5555"
             value={this.props.phone}
             onChangeText={value => this.props.employeeUpdate({ prop: 'phone', value })}
           />
-        </CardSection>
-
-        <CardSection style={{ flexDirection: 'column' }}>
-          {/* <Text style={styles.pickerTextStyle}>Shift</Text> */}
-          <Picker
-            style={{ flex: 1 }}
-            selectedValue={this.props.shift}
-            onValueChange={value => this.props.employeeUpdate({ prop: 'shift', value })}
-          >
-            <Picker.Item label="Monday" value="Monday" />
-            <Picker.Item label="Tuesday" value="Tuesday" />
-            <Picker.Item label="Wednesday" value="Wednesday" />
-            <Picker.Item label="Thursday" value="Thursday" />
-            <Picker.Item label="Friday" value="Friday" />
-            <Picker.Item label="Saturday" value="Saturday" />
-            <Picker.Item label="Sunday" value="Sunday" />
-          </Picker>
         </CardSection>
       </View>
     );
@@ -66,9 +49,9 @@ const styles = {
 
 const mapStateToProps = state => {
   // console.log('state', state);
-  const { firstName, lastName, phone, shift } = state.employeeForm;
+  const { firstName, lastName, phone } = state.employeeForm;
 
-  return { firstName, lastName, phone, shift };
+  return { firstName, lastName, phone };
 };
 
 export default connect(mapStateToProps, { employeeUpdate })(EmployeeForm);

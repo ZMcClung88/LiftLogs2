@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 
 class MyButton extends Component {
   render() {
-    console.log('button props', this.props);
+    // console.log('button props', this.props);
     const { myButtonStyle, myButtonContainer } = this.props.style;
 
     return (
