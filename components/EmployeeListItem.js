@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Text, View, TouchableOpacity } from 'react-native';
 import { CardSection } from './common';
 
-class ListItem extends Component {
+class EmployeeListItem extends Component {
+  onRowPress(props) {
+    console.log('employee list item props', this.props);
+  }
+
   render() {
     const { firstName, lastName, phone } = this.props.employee;
 
     return (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={this.onRowPress.bind(this)}>
         <View>
           <CardSection style={styles.containerStyle}>
             <Text style={styles.titleStyle}>
@@ -43,4 +48,4 @@ const styles = {
   }
 };
 
-export default ListItem;
+export default EmployeeListItem;
