@@ -8,7 +8,7 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 class Menu extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
-      title: 'Dashboard',
+      title: 'Menu',
       tabBarIcon: () => {
         return <Icon name="favorite" size={30} />;
       },
@@ -32,7 +32,7 @@ class Menu extends Component {
   render() {
     return (
       <View style={styles.actionButtonContainer}>
-        <View styles={styles.container}>
+        <View>
           <MyButton text="Add Employee" onPress={this.onDashButtonPress.bind(this, 'addEmp')} style={styles} />
           <MyButton text="Add Lift" onPress={this.onDashButtonPress.bind(this, 'addLift')} style={styles} />
           <Button title="Logout" backgroundColor="red" icon={{ name: 'delete-forever' }} onPress={this.onButtonPress} />
@@ -47,7 +47,7 @@ class Menu extends Component {
 const styles = {
   actionButtonContainer: {
     flex: 1,
-    justifyContent: 'center',
+    // justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#596479'
   },

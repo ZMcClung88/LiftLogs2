@@ -6,6 +6,19 @@ import { employeesFetch } from '../actions';
 import EmployeeListItem from '../components/EmployeeListItem';
 
 class EmployeeList extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: 'Employees',
+      tabBarIcon: () => {
+        return <Icon name="favorite" size={30} />;
+      },
+      headerTintColor: 'royalblue',
+      headerStyle: {
+        backgroundColor: '#1e304f'
+      }
+    };
+  };
+
   componentWillMount() {
     this.props.employeesFetch();
 
