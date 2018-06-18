@@ -13,8 +13,8 @@ class EmployeeForm extends Component {
           <Input
             label="First Name"
             placeholder="Jane"
-            value={this.props.name}
-            onChangeText={value => this.props.employeeUpdate({ prop: 'name', value })}
+            value={this.props.firstName}
+            onChangeText={value => this.props.employeeUpdate({ prop: 'firstName', value })}
           />
         </CardSection>
 
@@ -22,8 +22,8 @@ class EmployeeForm extends Component {
           <Input
             label="Last Name"
             placeholder="Johnson"
-            value={this.props.name}
-            onChangeText={value => this.props.employeeUpdate({ prop: 'name', value })}
+            value={this.props.lastName}
+            onChangeText={value => this.props.employeeUpdate({ prop: 'lastName', value })}
           />
         </CardSection>
 
@@ -34,6 +34,23 @@ class EmployeeForm extends Component {
             value={this.props.phone}
             onChangeText={value => this.props.employeeUpdate({ prop: 'phone', value })}
           />
+        </CardSection>
+
+        <CardSection style={{ flexDirection: 'column' }}>
+          {/* <Text style={styles.pickerTextStyle}>Shift</Text> */}
+          <Picker
+            style={{ flex: 1 }}
+            selectedValue={this.props.shift}
+            onValueChange={value => this.props.employeeUpdate({ prop: 'shift', value })}
+          >
+            <Picker.Item label="Monday" value="Monday" />
+            <Picker.Item label="Tuesday" value="Tuesday" />
+            <Picker.Item label="Wednesday" value="Wednesday" />
+            <Picker.Item label="Thursday" value="Thursday" />
+            <Picker.Item label="Friday" value="Friday" />
+            <Picker.Item label="Saturday" value="Saturday" />
+            <Picker.Item label="Sunday" value="Sunday" />
+          </Picker>
         </CardSection>
       </View>
     );
@@ -47,10 +64,11 @@ const styles = {
   }
 };
 
-// const mapStateToProps = state => {
-//   const { name, phone, shift } = state.employeeForm;
-//
-//   return { name, phone, shift };
-// };
+const mapStateToProps = state => {
+  // console.log('state', state);
+  const { firstName, lastName, phone, shift } = state.employeeForm;
 
-export default EmployeeForm;
+  return { firstName, lastName, phone, shift };
+};
+
+export default connect(mapStateToProps, { employeeUpdate })(EmployeeForm);

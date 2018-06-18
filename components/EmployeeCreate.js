@@ -11,7 +11,7 @@ import EmployeeForm from './EmployeeForm';
 
 class EmployeeCreate extends Component {
   componentWillMount() {
-    this.props.resetForm();
+    // this.props.resetForm();
   }
 
   onButtonPress() {
@@ -23,7 +23,7 @@ class EmployeeCreate extends Component {
     return (
       <Card>
         <EmployeeForm {...this.props} />
-        <CardSection>
+        <CardSection style={{ height: 50 }}>
           <Button onPress={this.onButtonPress.bind(this)}>Create</Button>
         </CardSection>
       </Card>

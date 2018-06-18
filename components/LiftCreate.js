@@ -13,14 +13,14 @@ class LiftCreate extends Component {
     console.log('lift form props', this.props);
     const { name } = this.props;
     this.props.liftCreate({ name });
-    this.props.props.navigation.navigate('liftList');
+    this.props.props.navigation.navigate('menu');
   }
 
   render() {
     return (
       <Card>
         <LiftForm {...this.props} />
-        <CardSection style={{ height: 40 }}>
+        <CardSection style={{ height: 50 }}>
           <Button onPress={this.onButtonPress.bind(this)}>Create</Button>
         </CardSection>
       </Card>
