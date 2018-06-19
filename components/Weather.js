@@ -35,16 +35,12 @@ class Weather extends Component {
       const imageArr = obj.weather.map(item => item.icon);
       const img = imageArr[0] + '.png';
       const imgURL = '../assets/weather-icons/' + img;
-      const utcSeconds = obj;
-      let date = obj.dt_txt;
-      console.log('obj', date.toLocaleString());
 
       return (
         <ScrollView key={obj.dt}>
           <Card>
             <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', marginTop: 5 }}>
               <View>
-                <Text>current: {_.round(9 / 5 * (obj.main.temp - 273) + 32)}&#176;F</Text>
                 <Text>high: {_.round(9 / 5 * (obj.main.temp_max - 273) + 32)}&#176;F</Text>
                 <Text>low: {_.round(9 / 5 * (obj.main.temp_min - 273) + 32)}&#176;F</Text>
               </View>
