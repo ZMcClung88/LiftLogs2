@@ -37,7 +37,7 @@ class AnouncementScreen extends Component {
   renderNotes = () => {
     if (this.state.hide) {
       return (
-        <View>
+        <ScrollView>
           <Text style={{ fontStyle: 'italic' }}>Today's Notes:</Text>
           <TextInput
             // style={{ display: this.state.isHidden ? 'none' : null }}
@@ -55,12 +55,12 @@ class AnouncementScreen extends Component {
             {/* <Text>Weather:</Text> */}
             <Weather />
           </View>
-        </View>
+        </ScrollView>
       );
     } else {
       return (
-        <View style={{ height: 175, width: SCREEN_WIDTH * 0.9 }}>
-          <Text>{this.state.notes}</Text>
+        <View style={{ height: SCREEN_HEIGHT, width: SCREEN_WIDTH * 0.9 }}>
+          <Text style={{ fontSize: 22 }}>{this.state.notes}</Text>
           <MyButton text="Edit" style={styles} onPress={this.onButtonPress} />
           <View>
             {/* <Text>Weather:</Text> */}
