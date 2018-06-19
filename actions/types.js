@@ -8,3 +8,5 @@ export const EMPLOYEES_FETCH_SUCCESS = 'employee_fetch_success';
 export const LIFT_UPDATE = 'lift_update';
 export const LIFT_CREATE = 'lift_create';
 export const LIFT_FETCH_SUCCESS = 'lift_fetch_success';
+
+export const FETCH_WEATHER = 'fetch_weather';

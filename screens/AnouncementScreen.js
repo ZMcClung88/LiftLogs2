@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, ScrollView, Text, TextInput, Dimensions } from 'react-native';
 import { Button } from 'react-native-elements';
 import MyButton from '../components/myButton';
-// import Weather from '../components/Weather';
+import Weather from '../components/Weather';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
@@ -25,7 +25,7 @@ class AnouncementScreen extends Component {
 
   onChangeText = value => {
     this.setState({ notes: value });
-    console.log('value', this.state.notes);
+    // console.log('value', this.state.notes);
   };
 
   render() {
@@ -38,10 +38,6 @@ class AnouncementScreen extends Component {
           backgroundColor: '#596479'
         }}
       >
-        <View>
-          <Text>Weather:</Text>
-          {/* <Weather /> */}
-        </View>
         <View style={{ marginTop: 40 }}>
           <Text style={{ fontStyle: 'italic' }}>Today's Notes:</Text>
           <TextInput
@@ -57,6 +53,10 @@ class AnouncementScreen extends Component {
           />
         </View>
         <MyButton text="Done" style={styles} />
+        <View>
+          {/* <Text>Weather:</Text> */}
+          <Weather />
+        </View>
       </ScrollView>
     );
   }
@@ -83,7 +83,8 @@ const styles = {
     alignItems: 'center',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    marginTop: 10
+    marginTop: 10,
+    marginBottom: 25
   },
   myButtonStyle: {
     color: '#F3D92D',
