@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { View, Text, ListView } from 'react-native';
+import { Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { employeesFetch } from '../actions';
 import EmployeeListItem from '../components/EmployeeListItem';
@@ -15,7 +16,15 @@ class EmployeeList extends Component {
       headerTintColor: 'royalblue',
       headerStyle: {
         backgroundColor: '#1e304f'
-      }
+      },
+      headerRight: (
+        <Button
+          title="Add"
+          onPress={() => navigation.navigate('addEmp')}
+          backgroundColor="rgba(0,0,0,0)"
+          color="rgba(0,122,255,1)"
+        />
+      )
     };
   };
 

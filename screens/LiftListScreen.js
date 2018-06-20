@@ -2,6 +2,7 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ListView } from 'react-native';
+import { Button } from 'react-native-elements';
 import { liftFetch } from '../actions';
 import LiftListItem from '../components/LiftListItem';
 
@@ -15,7 +16,15 @@ class LiftList extends Component {
       headerTintColor: 'royalblue',
       headerStyle: {
         backgroundColor: '#1e304f'
-      }
+      },
+      headerRight: (
+        <Button
+          title="Add"
+          onPress={() => navigation.navigate('addLift')}
+          backgroundColor="rgba(0,0,0,0)"
+          color="rgba(0,122,255,1)"
+        />
+      )
     };
   };
 
