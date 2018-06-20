@@ -18,10 +18,12 @@ class EmployeeCreate extends Component {
 
   render() {
     return (
-      <Card>
-        <EmployeeForm {...this.props} />
-        <CardSection style={{ height: 50, marginTop: 20 }}>
+      <Card style={{ height: 1000 }}>
+        <CardSection style={{ height: 40, marginBottom: 10 }}>
           <Button onPress={this.onButtonPress.bind(this)}>Create</Button>
+        </CardSection>
+        <CardSection>
+          <EmployeeForm {...this.props} />
         </CardSection>
       </Card>
     );

@@ -38,8 +38,8 @@ class EmployeeList extends Component {
   }
 
   renderRow(employees) {
-    console.log('employees', employees);
-    return <EmployeeListItem employee={employees} />;
+    // console.log('employees', employees);
+    return <EmployeeListItem onPress={this.handlePress} employee={employees} />;
   }
 
   render() {

@@ -19,8 +19,10 @@ class AddEmployee extends Component {
   state = {
     firstName: '',
     lastName: '',
-    phone: ''
+    phone: '',
+    shifts: []
   };
+
   render() {
     return (
       <View>

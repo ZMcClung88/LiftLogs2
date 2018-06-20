@@ -81,7 +81,7 @@ class AnouncementScreen extends Component {
           backgroundColor: '#596479'
         }}
       >
-        <View style={{ marginTop: 5 }}>{this.renderNotes()}</View>
+        {this.renderNotes()}
       </ScrollView>
     );
   }
