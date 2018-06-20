@@ -16,7 +16,6 @@ import EmployeeList from './screens/EmployeeListScreen';
 import LiftList from './screens/LiftListScreen';
 import MenuScreen from './screens/MenuScreen';
 import ScheduleScreen from './screens/ScheduleScreen';
-import EmployeeScreen from './screens/EmployeeScreen';
 
 export default class App extends Component {
   render() {
@@ -33,8 +32,7 @@ export default class App extends Component {
             notes: AnouncementScreen,
             sched: ScheduleScreen,
             liftList: LiftList,
-            empList: EmployeeList,
-            emp: EmployeeScreen
+            empList: EmployeeList
           })
         }
       },
