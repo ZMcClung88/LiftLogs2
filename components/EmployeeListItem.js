@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, Dimensions, Image } from 'react-native';
 import { CardSection } from './common';
+// import EmployeeModal from './EmployeeModal';
+import Modal from 'react-native-modal';
+
+const SCREEN_WIDTH = Dimensions.get('window').width;
+const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 class EmployeeListItem extends Component {
+  state = {
+    isModalVisible: false
+  };
+
   onRowPress(props) {
     console.log('props', this.props);
     const user = this.props.employee;
     // console.log('here', user);
+    this.setState({ isModalVisible: !this.state.isModalVisible });
   }
 
   render() {
@@ -15,6 +25,7 @@ class EmployeeListItem extends Component {
 
     return (
       <View>
+        {/* <EmployeeModal /> */}
         <TouchableOpacity onPress={this.onRowPress.bind(this)}>
           <View>
             <CardSection style={styles.containerStyle}>
@@ -25,6 +36,28 @@ class EmployeeListItem extends Component {
             </CardSection>
           </View>
         </TouchableOpacity>
+        <Modal
+          isVisible={this.state.isModalVisible}
+          backdropColor="#596479"
+          backdropOpacity={0.9}
+          swipeThreshold={50}
+          swipeDirection={'down'}
+          onSwipe={() => {
+            this.setState({ isModalVisible: !this.state.isModalVisible });
+          }}
+        >
+          <View style={styles.modalStyle}>
+            <View style={styles.modalTextContainer}>
+              <Image style={{ marginBottom: 25 }} source={require('../assets/profile.png')} />
+              <Text style={styles.modalText}>
+                {firstName} {lastName}
+              </Text>
+              <Text style={styles.modalText}>{phone}</Text>
+              {/* <Text style={styles.modalText}>{uid}</Text> */}
+            </View>
+          </View>
+          <TouchableOpacity onPress={this.onRowPress.bind(this)} />
+        </Modal>
       </View>
     );
   }
@@ -49,6 +82,25 @@ const styles = {
     flexDirection: 'column',
     borderColor: '#ddd',
     position: 'relative'
+  },
+  modalStyle: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  modalTextContainer: {
+    height: SCREEN_HEIGHT * 0.9,
+    width: SCREEN_WIDTH * 0.9,
+    borderRadius: 4,
+    borderWidth: 0.5,
+    borderColor: '#d6d7da',
+    backgroundColor: '#d6d7da',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  modalText: {
+    color: '#1e304f',
+    fontSize: 28
   }
 };
 

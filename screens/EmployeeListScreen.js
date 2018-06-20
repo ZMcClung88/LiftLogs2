@@ -5,6 +5,7 @@ import { Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { employeesFetch } from '../actions';
 import EmployeeListItem from '../components/EmployeeListItem';
+// import EmployeeModal from '../components/EmployeeModal';
 
 class EmployeeList extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -52,7 +53,12 @@ class EmployeeList extends Component {
   }
 
   render() {
-    return <ListView enableEmptySections dataSource={this.dataSource} renderRow={this.renderRow} />;
+    return (
+      <View>
+        {/* <EmployeeModal /> */}
+        <ListView enableEmptySections dataSource={this.dataSource} renderRow={this.renderRow} />
+      </View>
+    );
   }
 }
 
