@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, TouchableOpacity, Dimensions, Image } from 'react-native';
+import { Button } from 'react-native-elements';
 import { CardSection } from './common';
 // import EmployeeModal from './EmployeeModal';
+import { employeeDelete } from '../actions/employee_actions';
 import Modal from 'react-native-modal';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -19,6 +21,12 @@ class EmployeeListItem extends Component {
     // console.log('here', user);
     this.setState({ isModalVisible: !this.state.isModalVisible });
   }
+
+  onDelete = props => {
+    // console.log('on a roll!!!!');
+    const user = this.props.employee;
+    this.props.employeeDelete(user);
+  };
 
   render() {
     const { firstName, lastName, phone, uid } = this.props.employee;
@@ -54,6 +62,17 @@ class EmployeeListItem extends Component {
               </Text>
               <Text style={styles.modalText}>{phone}</Text>
               {/* <Text style={styles.modalText}>{uid}</Text> */}
+              <CardSection>
+                <Button
+                  raised
+                  rounded
+                  title="Delete"
+                  backgroundColor="red"
+                  icon={{ name: 'delete-forever' }}
+                  onPress={this.onDelete}
+                  style={{ width: SCREEN_WIDTH * 0.7, borderRadius: 5, marginTop: 25 }}
+                />
+              </CardSection>
             </View>
           </View>
           <TouchableOpacity onPress={this.onRowPress.bind(this)} />
@@ -104,4 +123,4 @@ const styles = {
   }
 };
 
-export default EmployeeListItem;
+export default connect(null, { employeeDelete })(EmployeeListItem);

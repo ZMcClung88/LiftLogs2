@@ -16,6 +16,10 @@ const LON = -111.591896;
 
 const url = `${ROOT_URL}&lat=${LAT}&lon=${LON}&cnt=5`;
 
+const IMAGES = {
+  image1: require('../assets/weather-icons/01d.svg')
+};
+
 class Weather extends Component {
   state = {
     weather: []
@@ -33,8 +37,9 @@ class Weather extends Component {
     // console.log('weather props', _.map(this.props.list, obj => obj.weather[0].description));
     return _.map(this.props.list, obj => {
       const imageArr = obj.weather.map(item => item.icon);
-      const img = imageArr[0] + '.png';
-      const imgURL = '../assets/weather-icons/' + img;
+      const img = imageArr[0] + '.svg';
+      const imgURL = `../assets/weather-icons/${img}`;
+      console.log('url', imgURL);
 
       return (
         <ScrollView key={obj.dt}>
@@ -45,7 +50,7 @@ class Weather extends Component {
                 <Text>low: {_.round(9 / 5 * (obj.main.temp_min - 273) + 32)}&#176;F</Text>
               </View>
               <View>
-                <Image source={require('../assets/weather-icons/01d.png')} style={{ height: 50, width: 50 }} />
+                <Image source={require('../assets/weather-icons/03n.svg')} style={{ height: 50, width: 50 }} />
                 <Text>{obj.weather.map(item => item.description)}</Text>
               </View>
             </View>

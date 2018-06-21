@@ -1,5 +1,11 @@
 import firebase from 'firebase';
-import { EMPLOYEE_UPDATE, EMPLOYEE_CREATE, EMPLOYEES_FETCH_SUCCESS, EMPLOYEE_FETCH_SUCCESS } from './types';
+import {
+  EMPLOYEE_UPDATE,
+  EMPLOYEE_CREATE,
+  EMPLOYEES_FETCH_SUCCESS,
+  EMPLOYEE_FETCH_SUCCESS,
+  EMPLOYEE_DELETE
+} from './types';
 
 export const employeeUpdate = ({ prop, value }) => {
   return {
@@ -35,7 +41,14 @@ export const employeesFetch = () => {
   };
 };
 
-export const employeeFetch = user => {
-  // console.log('user', user);
-  return { type: EMPLOYEE_FETCH_SUCCESS, payload: user };
+export const employeeDelete = user => {
+  const { currentUser } = firebase.auth();
+  console.log('user', user);
+
+  return dispatch => {
+    firebase
+      .database()
+      .ref(`/users/${currentUser.uid}/employees/${user.uid}`)
+      .remove();
+  };
 };

@@ -13,7 +13,7 @@ class EmployeeCreate extends Component {
     console.log('employee form props');
     const { firstName, lastName, phone } = this.props;
     this.props.employeeCreate({ firstName, lastName, phone });
-    this.props.props.navigation.navigate('menu');
+    this.props.props.navigation.navigate('empList');
   }
 
   render() {

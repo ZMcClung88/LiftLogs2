@@ -12,7 +12,7 @@ const LON = -111.591896;
 export const fetchWeather = () => async dispatch => {
   // console.log(LAT, LON);
   try {
-    const url = `${ROOT_URL}&lat=${LAT}&lon=${LON}&cnt=5`;
+    const url = `${ROOT_URL}&lat=${LAT}&lon=${LON}&cnt=10`;
     let { data } = await axios.get(url);
     dispatch({ type: FETCH_WEATHER, payload: data });
     // console.log('request', data.list);

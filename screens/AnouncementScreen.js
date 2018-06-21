@@ -60,6 +60,7 @@ class AnouncementScreen extends Component {
     } else {
       return (
         <View style={{ height: SCREEN_HEIGHT, width: SCREEN_WIDTH * 0.9 }}>
+          <Text style={{ fontStyle: 'italic' }}>Today's Notes:</Text>
           <Text style={{ fontSize: 22 }}>{this.state.notes}</Text>
           <MyButton text="Edit" style={styles} onPress={this.onButtonPress} />
           <View>

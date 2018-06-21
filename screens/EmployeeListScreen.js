@@ -1,11 +1,13 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
-import { View, Text, ListView } from 'react-native';
+import { View, Text, ListView, Dimensions } from 'react-native';
 import { Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { employeesFetch } from '../actions';
 import EmployeeListItem from '../components/EmployeeListItem';
 // import EmployeeModal from '../components/EmployeeModal';
+
+const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 class EmployeeList extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -56,7 +58,12 @@ class EmployeeList extends Component {
     return (
       <View>
         {/* <EmployeeModal /> */}
-        <ListView enableEmptySections dataSource={this.dataSource} renderRow={this.renderRow} />
+        <ListView
+          style={{ backgroundColor: '#1e304f', height: SCREEN_HEIGHT }}
+          enableEmptySections
+          dataSource={this.dataSource}
+          renderRow={this.renderRow}
+        />
       </View>
     );
   }
