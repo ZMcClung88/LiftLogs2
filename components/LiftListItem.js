@@ -24,6 +24,7 @@ class LiftListItem extends Component {
     // console.log('props',  this.props );
     const lift = this.props.lift;
     this.props.liftDelete(lift);
+    this.setState({ isModalVisible: !this.state.isModalVisible });
   };
 
   render() {
