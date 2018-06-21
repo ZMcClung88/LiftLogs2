@@ -1,5 +1,5 @@
 import firebase from 'firebase';
-import { LIFT_CREATE, LIFT_FETCH_SUCCESS, LIFT_UPDATE } from './types';
+import { LIFT_CREATE, LIFT_FETCH_SUCCESS, LIFT_UPDATE, LIFT_DELETE } from './types';
 
 export const liftUpdate = ({ prop, value }) => {
   return {
@@ -32,5 +32,17 @@ export const liftFetch = () => {
       .on('value', snapshot => {
         dispatch({ type: LIFT_FETCH_SUCCESS, payload: snapshot.val() });
       });
+  };
+};
+
+export const liftDelete = lift => {
+  const { currentUser } = firebase.auth();
+  console.log('single lift', lift);
+
+  return dispatch => {
+    firebase
+      .database()
+      .ref(`/users/${currentUser.uid}/lifts/${lift.uid}`)
+      .remove();
   };
 };

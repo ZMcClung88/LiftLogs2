@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, TouchableOpacity, Dimensions, Image } from 'react-native';
+import { Button } from 'react-native-elements';
 import { CardSection } from './common';
 import Modal from 'react-native-modal';
+import { liftDelete } from '../actions/lift_actions';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
@@ -11,11 +13,18 @@ class LiftListItem extends Component {
   state = {
     isModalVisible: false
   };
+
   onRowPress(props) {
-    console.log('lift list item props', this.props);
+    // console.log('lift list item props', this.props);
     // Actions.liftEdit({ lift: this.props.lift });
     this.setState({ isModalVisible: !this.state.isModalVisible });
   }
+
+  onDelete = props => {
+    // console.log('props',  this.props );
+    const lift = this.props.lift;
+    this.props.liftDelete(lift);
+  };
 
   render() {
     const { name } = this.props.lift;
@@ -44,6 +53,17 @@ class LiftListItem extends Component {
               <Image style={{ marginBottom: 25, height: 125, width: 125 }} source={require('../assets/lift.png')} />
               <Text style={styles.modalText}>{name}</Text>
               {/* <Text style={styles.modalText}>{uid}</Text> */}
+              <CardSection>
+                <Button
+                  raised
+                  rounded
+                  title="Delete"
+                  backgroundColor="red"
+                  icon={{ name: 'delete-forever' }}
+                  onPress={this.onDelete}
+                  style={{ width: SCREEN_WIDTH * 0.7, borderRadius: 5, marginTop: 25 }}
+                />
+              </CardSection>
             </View>
           </View>
           <TouchableOpacity onPress={this.onRowPress.bind(this)} />
@@ -94,4 +114,4 @@ const styles = {
   }
 };
 
-export default LiftListItem;
+export default connect(null, { liftDelete })(LiftListItem);
