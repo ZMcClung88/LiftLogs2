@@ -6,6 +6,7 @@ import { CardSection } from './common';
 // import EmployeeModal from './EmployeeModal';
 import { employeeDelete } from '../actions/employee_actions';
 import Modal from 'react-native-modal';
+import { RNCamera } from 'react-native-camera';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
@@ -26,6 +27,7 @@ class EmployeeListItem extends Component {
     // console.log('on a roll!!!!');
     const user = this.props.employee;
     this.props.employeeDelete(user);
+    this.setState({ isModalVisible: !this.state.isModalVisible });
   };
 
   render() {

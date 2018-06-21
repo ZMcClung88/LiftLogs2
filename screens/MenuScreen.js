@@ -35,7 +35,13 @@ class Menu extends Component {
         <View>
           <MyButton text="Add Employee" onPress={this.onDashButtonPress.bind(this, 'addEmp')} style={styles} />
           <MyButton text="Add Lift" onPress={this.onDashButtonPress.bind(this, 'addLift')} style={styles} />
-          <Button title="Logout" backgroundColor="red" icon={{ name: 'delete-forever' }} onPress={this.onButtonPress} />
+          <Button
+            raised
+            title="Logout"
+            backgroundColor="red"
+            icon={{ name: 'delete-forever' }}
+            onPress={this.onButtonPress}
+          />
         </View>
         {/* <View>
         </View> */}
