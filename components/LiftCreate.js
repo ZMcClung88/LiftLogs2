@@ -13,7 +13,7 @@ class LiftCreate extends Component {
     console.log('lift form props', this.props);
     const { name } = this.props;
     this.props.liftCreate({ name });
-    this.props.props.navigation.navigate('menu');
+    this.props.props.navigation.navigate('liftList');
   }
 
   render() {
