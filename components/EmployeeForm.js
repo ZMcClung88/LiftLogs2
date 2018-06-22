@@ -6,6 +6,7 @@ import { employeeUpdate } from '../actions';
 import { CardSection } from './common/CardSection';
 import { Card } from './common/Card';
 import { Input } from './common';
+import MyCheckBox from './MyCheckBox';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
@@ -20,7 +21,11 @@ class EmployeeForm extends Component {
     saturday: false,
     sunday: false
   };
+
   render() {
+    console.log('state', this.state);
+    // console.log('props', this.props);
+
     return (
       <ScrollView>
         >
@@ -49,7 +54,7 @@ class EmployeeForm extends Component {
           />
         </CardSection>
         <CardSection>
-          <CheckBox
+          {/* <CheckBox
             title="Monday"
             onPress={() => this.setState({ monday: !this.state.monday })}
             checked={this.state.monday}
@@ -103,7 +108,8 @@ class EmployeeForm extends Component {
             title="Sunday"
             checkedIcon="dot-circle-o"
             uncheckedIcon="circle-o"
-          />
+          /> */}
+          <MyCheckBox day="Monday" />
         </CardSection>
       </ScrollView>
     );
@@ -119,9 +125,9 @@ const styles = {
 
 const mapStateToProps = state => {
   // console.log('state', state);
-  const { firstName, lastName, phone } = state.employeeForm;
+  const { firstName, lastName, phone, shifts } = state.employeeForm;
 
-  return { firstName, lastName, phone };
+  return { firstName, lastName, phone, shifts };
 };
 
 export default connect(mapStateToProps, { employeeUpdate })(EmployeeForm);

@@ -6,18 +6,24 @@ import { CardSection } from './common';
 // import EmployeeModal from './EmployeeModal';
 import { employeeDelete } from '../actions/employee_actions';
 import Modal from 'react-native-modal';
-import { RNCamera } from 'react-native-camera';
+import { ImagePicker, FileSystem, Camera, Permissions } from 'expo';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 class EmployeeListItem extends Component {
   state = {
-    isModalVisible: false
+    isModalVisible: false,
+    hasCameraPermission: null
   };
 
+  async componentWillMount() {
+    const { status } = await Permissions.askAsync(Permissions.CAMERA);
+    this.setState({ hasCameraPermission: status === 'granted' });
+  }
+
   onRowPress(props) {
-    console.log('props', this.props);
+    // console.log('props', this.props);
     const user = this.props.employee;
     // console.log('here', user);
     this.setState({ isModalVisible: !this.state.isModalVisible });
@@ -30,7 +36,28 @@ class EmployeeListItem extends Component {
     this.setState({ isModalVisible: !this.state.isModalVisible });
   };
 
+  takePhoto = async () => {
+    let pickerResult = await ImagePicker.launchCameraAsync({
+      exif: true,
+      allowsEditing: true,
+      quality: 0.7,
+      base64: true,
+      aspect: [4, 3]
+    });
+  };
+
+  // choosePhoto = async () => {
+  //   let pickerResult = await ImagePicker.launchImageLibraryAsync({
+  //     exif: true,
+  //     allowsEditing: false,
+  //     quality: 0.7,
+  //     base64: true
+  //   });
+  // };
+
   render() {
+    // console.log('working!');
+    // const { hasCameraPermission } = this.state.hasCameraPermission;
     const { firstName, lastName, phone, uid } = this.props.employee;
 
     return (
@@ -75,6 +102,28 @@ class EmployeeListItem extends Component {
                   style={{ width: SCREEN_WIDTH * 0.7, borderRadius: 5, marginTop: 25 }}
                 />
               </CardSection>
+              <CardSection>
+                <Button
+                  raised
+                  rounded
+                  title="Take a Photo"
+                  backgroundColor="green"
+                  // icon={{ name: 'delete-forever' }}
+                  onPress={this.takePhoto}
+                  style={{ width: SCREEN_WIDTH * 0.7, borderRadius: 5, marginTop: 25 }}
+                />
+              </CardSection>
+              {/* <CardSection>
+                <Button
+                  raised
+                  rounded
+                  title="Choose a Photo"
+                  backgroundColor="green"
+                  // icon={{ name: 'delete-forever' }}
+                  onPress={this.choosePhoto}
+                  style={{ width: SCREEN_WIDTH * 0.7, borderRadius: 5, marginTop: 25 }}
+                />
+              </CardSection> */}
             </View>
           </View>
           <TouchableOpacity onPress={this.onRowPress.bind(this)} />

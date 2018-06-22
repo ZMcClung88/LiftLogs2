@@ -10,9 +10,9 @@ import EmployeeForm from './EmployeeForm';
 
 class EmployeeCreate extends Component {
   onButtonPress() {
-    console.log('employee form props');
-    const { firstName, lastName, phone } = this.props;
-    this.props.employeeCreate({ firstName, lastName, phone });
+    // console.log('employee form props');
+    const { firstName, lastName, phone, shifts } = this.props;
+    this.props.employeeCreate({ firstName, lastName, phone, shifts });
     this.props.props.navigation.navigate('empList');
   }
 
@@ -31,9 +31,10 @@ class EmployeeCreate extends Component {
 }
 
 const mapStateToProps = state => {
-  const { firstName, lastName, phone } = state.employeeForm;
+  console.log('state here', state);
+  const { firstName, lastName, phone, shifts } = state.employeeForm;
 
-  return { firstName, lastName, phone };
+  return { firstName, lastName, phone, shifts };
 };
 
 export default connect(mapStateToProps, { employeeUpdate, employeeCreate })(EmployeeCreate);

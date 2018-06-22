@@ -3,7 +3,8 @@ import { EMPLOYEE_UPDATE, EMPLOYEE_CREATE } from '../actions/types';
 const INITIAL_STATE = {
   firstName: '',
   lastName: '',
-  phone: ''
+  phone: '',
+  shifts: []
 };
 
 export default (state = INITIAL_STATE, action) => {
