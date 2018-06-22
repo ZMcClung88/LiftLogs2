@@ -19,7 +19,25 @@ class EmployeeForm extends Component {
     thursday: false,
     friday: false,
     saturday: false,
-    sunday: false
+    sunday: false,
+    color: 'white',
+    textColor: 'black'
+  };
+
+  onPress = () => {
+    // console.log('day', day);
+
+    let color =
+      this.state.color === 'white'
+        ? 'green'
+        : this.state.color === 'green' ? 'red' : this.state.color === 'red' ? 'green' : null;
+
+    // let textColor =
+    //   this.state.color === 'white'
+    //     ? 'black'
+    //     : this.state.color === 'green' ? 'white' : this.state.color === 'red' ? 'white' : null;
+
+    this.setState({ color: color });
   };
 
   render() {
@@ -109,7 +127,11 @@ class EmployeeForm extends Component {
             checkedIcon="dot-circle-o"
             uncheckedIcon="circle-o"
           /> */}
-          <MyCheckBox day="Monday" />
+          <MyCheckBox
+            day="Monday"
+            onPress={this.onPress}
+            style={{ ...styles.checkBoxStyle, backgroundColor: this.state.color }}
+          />
           <MyCheckBox day="Tuesday" />
           <MyCheckBox day="Wednesday" />
           <MyCheckBox day="Thursday" />
@@ -126,6 +148,13 @@ const styles = {
   pickerTextStyle: {
     fontSize: 18,
     paddingLeft: 20
+  },
+  checkBoxStyle: {
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 3,
+    marginTop: 10
   }
 };
 
