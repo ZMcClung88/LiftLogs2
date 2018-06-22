@@ -6,15 +6,22 @@ import { Card } from './common/Card';
 
 class MyCheckBox extends Component {
   state = {
-    color: 'white'
+    color: 'white',
+    textColor: 'black'
   };
 
   toggleColor = () => {
     console.log('button state', this.state);
+
     let color =
       this.state.color === 'white'
         ? 'green'
         : this.state.color === 'green' ? 'red' : this.state.color === 'red' ? 'green' : null;
+
+    // let textColor =
+    //   this.state.color === 'white'
+    //     ? 'black'
+    //     : this.state.color === 'green' ? 'white' : this.state.color === 'red' ? 'white' : null;
 
     this.setState({ color: color });
   };
@@ -33,7 +40,7 @@ class MyCheckBox extends Component {
             marginTop: 10
           }}
         >
-          <Text>{this.props.day}</Text>
+          <Text style={styles.textStyle}>{this.props.day}</Text>
         </CardSection>
         {/* </Card> */}
       </TouchableOpacity>
@@ -46,6 +53,12 @@ const styles = {
     height: 40,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  textStyle: {
+    color: 'black',
+    fontSize: 22,
+    letterSpacing: 1,
+    fontWeight: 'bold'
   }
 };
 
