@@ -110,6 +110,12 @@ class EmployeeForm extends Component {
             uncheckedIcon="circle-o"
           /> */}
           <MyCheckBox day="Monday" />
+          <MyCheckBox day="Tuesday" />
+          <MyCheckBox day="Wednesday" />
+          <MyCheckBox day="Thursday" />
+          <MyCheckBox day="Friday" />
+          <MyCheckBox day="Saturday" />
+          <MyCheckBox day="Sunday" />
         </CardSection>
       </ScrollView>
     );
