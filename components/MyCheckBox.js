@@ -10,7 +10,7 @@ class MyCheckBox extends Component {
       <TouchableOpacity onPress={this.props.onPress}>
         {/* <Card> */}
         <CardSection style={this.props.style}>
-          <Text style={styles.textStyle}>{this.props.day}</Text>
+          <Text style={styles.textStyle}>{this.props.value}</Text>
         </CardSection>
         {/* </Card> */}
       </TouchableOpacity>
