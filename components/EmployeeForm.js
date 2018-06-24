@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { View, Text, ScrollView, Dimensions } from 'react-native';
 import { CheckBox } from 'react-native-elements';
@@ -25,20 +26,10 @@ class EmployeeForm extends Component {
     textColor: 'black'
   };
 
-  onPress = () => {
-    // console.log('day', ref);
-
-    let color =
-      this.state.color === 'white'
-        ? 'green'
-        : this.state.color === 'green' ? 'red' : this.state.color === 'red' ? 'green' : null;
-
-    // let textColor =
-    //   this.state.color === 'white'
-    //     ? 'black'
-    //     : this.state.color === 'green' ? 'white' : this.state.color === 'red' ? 'white' : null;
-
-    this.setState({ color: color });
+  toggleCheckbox = () => {
+    console.log(_.every(_.valuesIn(this.state), false));
+    let color = _.every(_.valuesIn(this.state), false) ? 'white' : 'green';
+    this.setState({ color });
   };
 
   render() {
@@ -128,13 +119,41 @@ class EmployeeForm extends Component {
             checkedIcon="dot-circle-o"
             uncheckedIcon="circle-o"
           /> */}
-          <MyCheckBox value="Monday" style={{ ...styles.checkBoxStyle, backgroundColor: this.state.color }} />
-          <MyCheckBox value="Tuesday" style={{ ...styles.checkBoxStyle, backgroundColor: this.state.color }} />
-          <MyCheckBox value="Wednesday" style={{ ...styles.checkBoxStyle, backgroundColor: this.state.color }} />
-          <MyCheckBox value="Thursday" style={{ ...styles.checkBoxStyle, backgroundColor: this.state.color }} />
-          <MyCheckBox value="Friday" style={{ ...styles.checkBoxStyle, backgroundColor: this.state.color }} />
-          <MyCheckBox value="Saturday" style={{ ...styles.checkBoxStyle, backgroundColor: this.state.color }} />
-          <MyCheckBox value="Sunday" style={{ ...styles.checkBoxStyle, backgroundColor: this.state.color }} />
+          <MyCheckBox
+            onPress={this.toggleCheckbox}
+            value="Monday"
+            style={{ ...styles.checkBoxStyle, backgroundColor: this.state.color }}
+          />
+          <MyCheckBox
+            onPress={this.toggleCheckbox}
+            value="Tuesday"
+            style={{ ...styles.checkBoxStyle, backgroundColor: this.state.color }}
+          />
+          <MyCheckBox
+            onPress={this.toggleCheckbox}
+            value="Wednesday"
+            style={{ ...styles.checkBoxStyle, backgroundColor: this.state.color }}
+          />
+          <MyCheckBox
+            onPress={this.toggleCheckbox}
+            value="Thursday"
+            style={{ ...styles.checkBoxStyle, backgroundColor: this.state.color }}
+          />
+          <MyCheckBox
+            onPress={this.toggleCheckbox}
+            value="Friday"
+            style={{ ...styles.checkBoxStyle, backgroundColor: this.state.color }}
+          />
+          <MyCheckBox
+            onPress={this.toggleCheckbox}
+            value="Saturday"
+            style={{ ...styles.checkBoxStyle, backgroundColor: this.state.color }}
+          />
+          <MyCheckBox
+            onPress={this.toggleCheckbox}
+            value="Sunday"
+            style={{ ...styles.checkBoxStyle, backgroundColor: this.state.color }}
+          />
         </CardSection>
       </ScrollView>
     );
