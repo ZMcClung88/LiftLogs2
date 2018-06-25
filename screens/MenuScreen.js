@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, AsyncStorage, Dimensions } from 'react-native';
+import { Image, View, Text, AsyncStorage, Dimensions } from 'react-native';
 import { Button } from 'react-native-elements';
 import MyButton from '../components/myButton';
 
@@ -43,8 +43,9 @@ class Menu extends Component {
             onPress={this.onButtonPress}
           />
         </View>
-        {/* <View>
-        </View> */}
+        <View>
+          <Image style={styles.logoStyle} source={require('../assets/logo2.png')} />
+        </View>
       </View>
     );
   }
@@ -55,7 +56,8 @@ const styles = {
     flex: 1,
     // justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#596479'
+    backgroundColor: '#596479',
+    paddingTop: 30
   },
   myButtonContainer: {
     // flex: -1,
@@ -74,6 +76,11 @@ const styles = {
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center'
+  },
+  logoStyle: {
+    width: 300,
+    height: 150,
+    marginTop: 50
   }
 };
 
