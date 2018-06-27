@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Text, View, TouchableOpacity, Dimensions, Image } from 'react-native';
 import { Button } from 'react-native-elements';
 import { CardSection } from './common';
-// import EmployeeModal from './EmployeeModal';
 import { employeeDelete } from '../actions/employee_actions';
 import Modal from 'react-native-modal';
 import { ImagePicker, FileSystem, Camera, Permissions } from 'expo';
@@ -23,46 +22,21 @@ class EmployeeListItem extends Component {
   }
 
   onRowPress(props) {
-    // console.log('props', this.props);
     const user = this.props.employee;
-    // console.log('here', user);
     this.setState({ isModalVisible: !this.state.isModalVisible });
   }
 
   onDelete = props => {
-    // console.log('on a roll!!!!');
     const user = this.props.employee;
     this.props.employeeDelete(user);
     this.setState({ isModalVisible: !this.state.isModalVisible });
   };
 
-  takePhoto = async () => {
-    let pickerResult = await ImagePicker.launchCameraAsync({
-      exif: true,
-      allowsEditing: true,
-      quality: 0.7,
-      base64: true,
-      aspect: [4, 3]
-    });
-  };
-
-  // choosePhoto = async () => {
-  //   let pickerResult = await ImagePicker.launchImageLibraryAsync({
-  //     exif: true,
-  //     allowsEditing: false,
-  //     quality: 0.7,
-  //     base64: true
-  //   });
-  // };
-
   render() {
-    // console.log('working!');
-    // const { hasCameraPermission } = this.state.hasCameraPermission;
     const { firstName, lastName, phone, uid } = this.props.employee;
 
     return (
       <View>
-        {/* <EmployeeModal /> */}
         <TouchableOpacity onPress={this.onRowPress.bind(this)}>
           <View>
             <CardSection style={styles.containerStyle}>
@@ -90,7 +64,7 @@ class EmployeeListItem extends Component {
                 {firstName} {lastName}
               </Text>
               <Text style={styles.modalText}>{phone}</Text>
-              {/* <Text style={styles.modalText}>{uid}</Text> */}
+
               <CardSection>
                 <Button
                   raised
@@ -102,28 +76,6 @@ class EmployeeListItem extends Component {
                   style={{ width: SCREEN_WIDTH * 0.7, borderRadius: 5, marginTop: 25 }}
                 />
               </CardSection>
-              <CardSection>
-                <Button
-                  raised
-                  rounded
-                  title="Take a Photo"
-                  backgroundColor="green"
-                  // icon={{ name: 'delete-forever' }}
-                  onPress={this.takePhoto}
-                  style={{ width: SCREEN_WIDTH * 0.7, borderRadius: 5, marginTop: 25 }}
-                />
-              </CardSection>
-              {/* <CardSection>
-                <Button
-                  raised
-                  rounded
-                  title="Choose a Photo"
-                  backgroundColor="green"
-                  // icon={{ name: 'delete-forever' }}
-                  onPress={this.choosePhoto}
-                  style={{ width: SCREEN_WIDTH * 0.7, borderRadius: 5, marginTop: 25 }}
-                />
-              </CardSection> */}
             </View>
           </View>
           <TouchableOpacity onPress={this.onRowPress.bind(this)} />
