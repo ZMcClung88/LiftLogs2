@@ -17,7 +17,6 @@ class AuthScreen extends Component {
   }
 
   onAuthComplete(props) {
-    // console.log('working!!!!', props);
     if (props.token) {
       this.props.navigation.navigate('dash');
     }

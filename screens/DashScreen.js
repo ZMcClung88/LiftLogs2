@@ -36,20 +36,6 @@ class DashScreen extends Component {
     return (
       <View style={styles.buttonContainer}>
         <View style={styles.buttonGroup}>
-          {/* <Button
-            buttonStyle={styles.groupButtonStyle}
-            large
-            title="Schedule"
-            titleStyle={{ fontWeight: 900 }}
-            color="#1e304f"
-          />
-          <Button
-            buttonStyle={styles.groupButtonStyle}
-            large
-            title="Notes"
-            titleStyle={{ fontWeight: 900 }}
-            color="#1e304f"
-          /> */}
           <MyButton text="Today" onPress={this.onDashButtonPress.bind(this, 'sched')} style={styles} />
           <MyButton text="Notes" onPress={this.onDashButtonPress.bind(this, 'notes')} style={styles} />
           <MyButton text="Employees" onPress={this.onDashButtonPress.bind(this, 'empList')} style={styles} />

@@ -54,13 +54,11 @@ class Menu extends Component {
 const styles = {
   actionButtonContainer: {
     flex: 1,
-    // justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#596479',
     paddingTop: 30
   },
   myButtonContainer: {
-    // flex: -1,
     height: 50,
     width: SCREEN_WIDTH * 0.9,
     minHeight: 75,

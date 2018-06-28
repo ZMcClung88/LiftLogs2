@@ -27,7 +27,6 @@ class AnouncementScreen extends Component {
 
   onChangeText = value => {
     this.setState({ notes: value });
-    // console.log('value', this.state.notes);
   };
 
   onButtonPress = () => {
@@ -40,7 +39,6 @@ class AnouncementScreen extends Component {
         <ScrollView>
           <Text style={{ fontStyle: 'italic' }}>Today's Notes:</Text>
           <TextInput
-            // style={{ display: this.state.isHidden ? 'none' : null }}
             onChangeText={this.onChangeText}
             value={this.state.notes}
             multiline
@@ -52,7 +50,6 @@ class AnouncementScreen extends Component {
           />
           <MyButton text="Done" style={styles} onPress={this.onButtonPress} />
           <View>
-            {/* <Text>Weather:</Text> */}
             <Weather />
           </View>
         </ScrollView>
@@ -64,7 +61,6 @@ class AnouncementScreen extends Component {
           <Text style={{ fontSize: 22 }}>{this.state.notes}</Text>
           <MyButton text="Edit" style={styles} onPress={this.onButtonPress} />
           <View>
-            {/* <Text>Weather:</Text> */}
             <Weather />
           </View>
         </View>
@@ -100,7 +96,6 @@ const styles = {
     marginTop: 10
   },
   myButtonContainer: {
-    // flex: 1,
     height: 50,
     width: SCREEN_WIDTH * 0.9,
     borderRadius: 3,
