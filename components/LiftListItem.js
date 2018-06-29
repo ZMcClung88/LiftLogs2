@@ -15,13 +15,10 @@ class LiftListItem extends Component {
   };
 
   onRowPress(props) {
-    // console.log('lift list item props', this.props);
-    // Actions.liftEdit({ lift: this.props.lift });
     this.setState({ isModalVisible: !this.state.isModalVisible });
   }
 
   onDelete = props => {
-    // console.log('props',  this.props );
     const lift = this.props.lift;
     this.props.liftDelete(lift);
     this.setState({ isModalVisible: !this.state.isModalVisible });
@@ -53,7 +50,6 @@ class LiftListItem extends Component {
             <View style={styles.modalTextContainer}>
               <Image style={{ marginBottom: 25, height: 125, width: 125 }} source={require('../assets/lift.png')} />
               <Text style={styles.modalText}>{name}</Text>
-              {/* <Text style={styles.modalText}>{uid}</Text> */}
               <CardSection>
                 <Button
                   raised

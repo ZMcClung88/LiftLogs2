@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { CardSection } from './common/CardSection';
 import { Card } from './common/Card';
-// import { Input } from './common';
 
 class MyCheckBox extends Component {
   render() {

@@ -10,7 +10,6 @@ import EmployeeForm from './EmployeeForm';
 
 class EmployeeCreate extends Component {
   onButtonPress() {
-    // console.log('employee form props');
     const { firstName, lastName, phone, shifts } = this.props;
     this.props.employeeCreate({ firstName, lastName, phone, shifts });
     this.props.props.navigation.navigate('empList');

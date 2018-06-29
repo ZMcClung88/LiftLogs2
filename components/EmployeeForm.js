@@ -8,7 +8,6 @@ import { CardSection } from './common/CardSection';
 import { Card } from './common/Card';
 import { Input } from './common';
 import MyCheckBox from './MyCheckBox';
-// import { Checkbox, CheckboxGroup } from 'react-checkbox-group';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
@@ -33,9 +32,6 @@ class EmployeeForm extends Component {
   };
 
   render() {
-    // console.log('state', this.state);
-    // console.log('props', this.props);
-
     return (
       <ScrollView>
         >
@@ -175,7 +171,6 @@ const styles = {
 };
 
 const mapStateToProps = state => {
-  // console.log('state', state);
   const { firstName, lastName, phone, shifts } = state.employeeForm;
 
   return { firstName, lastName, phone, shifts };

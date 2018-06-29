@@ -27,14 +27,9 @@ class Weather extends Component {
 
   componentWillMount() {
     this.props.fetchWeather();
-    // console.log('please log');
-    // axios.get(url).then(response => {
-    //   this.setState({ weather: response.data });
-    // });
   }
 
   renderWeather = () => {
-    // console.log('weather props', _.map(this.props.list, obj => obj.weather[0].description));
     return _.map(this.props.list, obj => {
       const imageArr = obj.weather.map(item => item.icon);
       const img = imageArr[0] + '.svg';

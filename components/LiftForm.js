@@ -45,7 +45,6 @@ const styles = {
 };
 
 const mapStateToProps = state => {
-  // console.log('state', state);
   const { name } = state.liftForm;
 
   return { name };
