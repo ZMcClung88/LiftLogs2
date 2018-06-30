@@ -60,61 +60,6 @@ class EmployeeForm extends Component {
           />
         </CardSection>
         <CardSection>
-          {/* <CheckBox
-            title="Monday"
-            onPress={() => this.setState({ monday: !this.state.monday })}
-            checked={this.state.monday}
-            checkedIcon="dot-circle-o"
-            uncheckedIcon="circle-o"
-          />
-
-          <CheckBox
-            onPress={() => this.setState({ tuesday: !this.state.tuesday })}
-            checked={this.state.tuesday}
-            title="Tuesday"
-            checkedIcon="dot-circle-o"
-            uncheckedIcon="circle-o"
-          />
-
-          <CheckBox
-            onPress={() => this.setState({ wednesday: !this.state.wednesday })}
-            checked={this.state.wednesday}
-            title="Wednesday"
-            checkedIcon="dot-circle-o"
-            uncheckedIcon="circle-o"
-          />
-
-          <CheckBox
-            onPress={() => this.setState({ thursday: !this.state.thursday })}
-            checked={this.state.thursday}
-            title="Thursday"
-            checkedIcon="dot-circle-o"
-            uncheckedIcon="circle-o"
-          />
-
-          <CheckBox
-            onPress={() => this.setState({ friday: !this.state.friday })}
-            checked={this.state.friday}
-            title="Friday"
-            checkedIcon="dot-circle-o"
-            uncheckedIcon="circle-o"
-          />
-
-          <CheckBox
-            onPress={() => this.setState({ saturday: !this.state.saturday })}
-            checked={this.state.saturday}
-            title="Saturday"
-            checkedIcon="dot-circle-o"
-            uncheckedIcon="circle-o"
-          />
-
-          <CheckBox
-            onPress={() => this.setState({ sunday: !this.state.sunday })}
-            checked={this.state.sunday}
-            title="Sunday"
-            checkedIcon="dot-circle-o"
-            uncheckedIcon="circle-o"
-          /> */}
           <MyCheckBox
             onPress={this.toggleCheckbox}
             value="Monday"
