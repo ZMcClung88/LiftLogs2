@@ -16,7 +16,6 @@ export const employeeUpdate = ({ prop, value }) => {
 
 export const employeeCreate = ({ firstName, lastName, phone, shifts }) => {
   const { currentUser } = firebase.auth();
-  // console.log(firebase.auth);
   return dispatch => {
     firebase
       .database()
