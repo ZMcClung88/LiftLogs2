@@ -46,10 +46,6 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <View style={styles.container}>
-          {/* <Text>App!</Text>
-          <WelcomeScreen />
-          <AuthScreen />
-          <DashScreen /> */}
           <MainNavigator />
         </View>
       </Provider>
